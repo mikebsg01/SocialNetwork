@@ -1,0 +1,28 @@
+<h1> Datos de usuario </h1>
+
+<%= form_tag '/custom_sign_up', method: :post do %>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+
+  <label for="user_username">Nombre de usuario</label>
+  <br/>
+  <%= text_field_tag 'user[username]', @user.username %>
+  <br/>
+
+  <label for="user_email">Correo electronico</label>
+  <br/>
+  <%= text_field_tag 'user[email]', @user.email, required: true %>
+  <br/>
+
+  <label for="user_name">Nombre</label>
+  <br/>
+  <%= text_field_tag 'user[name]', @user.name %>
+  <br/>
+  <br/>
+
+  <%= submit_tag 'Completar registro' %>
+
+<% end %>
